@@ -21,18 +21,18 @@ public class Servico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message = "O nome do serviço é obrigatório!")
+	
 	@Size(min = 1, max = 255, message = "O nome do serviço deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String nomeServico;
 	
-	@NotBlank(message = "A descrição é obrigatória!")
+	
 	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
 	
-	@NotNull(message = "O valor é obrigatório!")
+	
 	private double valor;
 	
-	@NotBlank(message = "Sobre mim é obrigatória!")
+	
 	@Size(min = 1, max = 1000, message = "Sobre mim deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String sobreMim;
 	
