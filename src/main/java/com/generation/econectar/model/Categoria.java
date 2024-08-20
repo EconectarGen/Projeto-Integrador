@@ -22,11 +22,11 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message = "O nome da categoria é obrigatório!")
+	
 	@Size(min = 1, max = 255, message = "O nome da categoria deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String nomeCategoria;
 	
-	@NotBlank(message = "A descrição é obrigatória!")
+	
 	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
 	
