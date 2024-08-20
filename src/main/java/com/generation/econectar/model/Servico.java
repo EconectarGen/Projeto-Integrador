@@ -36,19 +36,15 @@ public class Servico {
 	private String sobreMim;
 	
 	private String status;
+	
 	@ManyToOne
-	@JsonIgnoreProperties({"servicosVendidos", "servicosComprados"})
-	@JoinColumn(name = "vendedor_id", nullable = false )
+
 	private Usuario vendedor;
 	
 	@ManyToOne
-	@JsonIgnoreProperties({"servicosVendidos", "servicosComprados"})
-	@JoinColumn(name = "comprador_id", nullable = false )
 	private Usuario comprador;
 	
 	@ManyToOne
-	@JsonIgnoreProperties({"categoria_id", "categoria_id"})
-	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
 	
 

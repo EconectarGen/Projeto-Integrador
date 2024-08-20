@@ -29,8 +29,8 @@ public class Categoria {
 	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"categoria"})
+	@OneToMany
+
 	private Set<Servico> servico;
 
 	public String getNomeCategoria() {

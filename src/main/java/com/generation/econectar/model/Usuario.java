@@ -36,7 +36,6 @@ public class Usuario {
 	
 	private String nome;
 	
-	@NotBlank(message = "A senha é obrigatória!")
 	@Size(min = 7, max = 64, message = "A senha deve conter no mínimo 7 e no máximo 64 caracteres")
 	private String senha;
 	
@@ -55,12 +54,10 @@ public class Usuario {
 	@Size(min = 1, max = 255, message = "A foto deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String foto;
 	
-	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"vendedor"})
+	@OneToMany
 	private List<Servico> ServicosVendidos;
 	
-	@OneToMany(mappedBy = "comprador", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"comprador"})
+	@OneToMany
 	private List<Servico> ServicosComprados;
 
 	public Usuario(Long id, String usuario, String nome, String senha, String endereco, String cpf, LocalDate dataNascimento, String foto, List<Servico> servicosVendidos, List<Servico> servicosComprados) {
