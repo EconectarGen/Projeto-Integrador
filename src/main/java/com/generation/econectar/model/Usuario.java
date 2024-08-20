@@ -1,7 +1,8 @@
 package com.generation.econectar.model;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -15,7 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -56,13 +57,13 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"vendedor"})
-	private Set<Servico> ServicosVendidos;
+	private List<Servico> ServicosVendidos;
 	
 	@OneToMany(mappedBy = "comprador", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"comprador"})
-	private Set<Servico> ServicosComprados;
+	private List<Servico> ServicosComprados;
 
-	public Usuario(Long id, String usuario, String nome, String senha, String endereco, String cpf, LocalDate dataNascimento, String foto, Set<Servico> servicosVendidos, Set<Servico> servicosComprados) {
+	public Usuario(Long id, String usuario, String nome, String senha, String endereco, String cpf, LocalDate dataNascimento, String foto, List<Servico> servicosVendidos, List<Servico> servicosComprados) {
 		this.id = id;
 		this.usuario = usuario;
 		this.nome = nome;
@@ -77,19 +78,19 @@ public class Usuario {
 
 	public Usuario() { }
 
-	public Set<Servico> getServicosVendidos() {
+	public List<Servico> getServicosVendidos() {
 		return ServicosVendidos;
 	}
 
-	public void setServicosVendidos(Set<Servico> servicosVendidos) {
+	public void setServicosVendidos(List<Servico> servicosVendidos) {
 		ServicosVendidos = servicosVendidos;
 	}
 
-	public Set<Servico> getServicosComprados() {
+	public List<Servico> getServicosComprados() {
 		return ServicosComprados;
 	}
 
-	public void setServicosComprados(Set<Servico> servicosComprados) {
+	public void setServicosComprados(List<Servico> servicosComprados) {
 		ServicosComprados = servicosComprados;
 	}
 
