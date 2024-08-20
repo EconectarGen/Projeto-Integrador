@@ -32,25 +32,25 @@ public class Usuario {
 	@Size(min = 1, max = 255, message = "O nome do usuário deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String usuario;
 	
-	@NotNull(message = "O nome é obrigatório!")
+	
 	private String nome;
 	
 	@NotBlank(message = "A senha é obrigatória!")
 	@Size(min = 7, max = 64, message = "A senha deve conter no mínimo 7 e no máximo 64 caracteres")
 	private String senha;
 	
-	@NotBlank(message = "O endereço é obrigatório!")
+	
 	@Size(min = 1, max = 255, message = "O endereço deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String endereco;
 	
-	@NotBlank(message = "O CPF é obrigatório!")
+	
 	@Size(min = 11, max = 11, message = "O CPF deve conter 11 caracteres")
 	private String cpf;
 	
-	@NotNull(message = "a data de nascimento é obrigatório!")
+	
 	private LocalDate dataNascimento;
 	
-	@NotBlank(message = "a Foto é obrigatório!")
+	
 	@Size(min = 1, max = 255, message = "A foto deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String foto;
 	
