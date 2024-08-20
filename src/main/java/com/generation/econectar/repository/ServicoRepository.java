@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import com.generation.econectar.model.Servico;
 
 public interface ServicoRepository extends JpaRepository<Servico, Long>{
-	public List<Servico> findAllBynomeServicoContainingIgnoreCase(@Param("nomeServico") String nomeServico);
+	public List<Servico> findByNomeServicoContainingIgnoreCase(@Param("nomeServico") String nomeServico);
 
 }
