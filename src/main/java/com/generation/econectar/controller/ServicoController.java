@@ -35,8 +35,8 @@ public class ServicoController {
 	private ServicoRepository servicorepository;
 	
 	@GetMapping
-	public ResponseEntity<Page<Servico>> getAll(Pageable pageble) {
-		return ResponseEntity.ok(servicorepository.findAll(pageble));
+	public ResponseEntity<List<Servico>> getAll( ) {
+		return ResponseEntity.ok(servicorepository.findAll());
 	}
 	@GetMapping("/{id}")
 	public ResponseEntity<Servico> getById( @PathVariable long id) {
