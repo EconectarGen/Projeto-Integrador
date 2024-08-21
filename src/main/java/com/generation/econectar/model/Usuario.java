@@ -3,12 +3,12 @@ package com.generation.econectar.model;
 import java.time.LocalDate;
 import java.util.List;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -54,10 +54,14 @@ public class Usuario {
 	@Size(min = 1, max = 255, message = "A foto deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String foto;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("vendedor")
 	private List<Servico> ServicosVendidos;
 	
+	
 	@OneToMany
+	(mappedBy = "comprador", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("comprador")
 	private List<Servico> ServicosComprados;
 
 	public Usuario(Long id, String usuario, String nome, String senha, String endereco, String cpf, LocalDate dataNascimento, String foto, List<Servico> servicosVendidos, List<Servico> servicosComprados) {

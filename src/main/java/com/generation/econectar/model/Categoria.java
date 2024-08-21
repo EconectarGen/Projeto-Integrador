@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,8 +30,9 @@ public class Categoria {
 	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
 	
-	@OneToMany
-
+	
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("categoria")
 	private Set<Servico> servico;
 
 	public String getNomeCategoria() {

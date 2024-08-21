@@ -1,12 +1,14 @@
 package com.generation.econectar.model;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -38,13 +40,15 @@ public class Servico {
 	private String status;
 	
 	@ManyToOne
-
+	@JsonIgnoreProperties("servicosVendidos")
 	private Usuario vendedor;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("servicosComprados")
 	private Usuario comprador;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("servico")
 	private Categoria categoria;
 	
 
