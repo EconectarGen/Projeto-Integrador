@@ -3,7 +3,7 @@ package com.generation.econectar.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "tb_servico")
@@ -24,24 +24,19 @@ public class Servico {
 	private Long id;
 	
 	
-	@Size(min = 1, max = 255, message = "O nome do serviço deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String nomeServico;
 	
 	
-	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
-	
 	
 	private double valor;
 	
 	
-	@Size(min = 1, max = 1000, message = "Sobre mim deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String sobreMim;
 	
 	private String status;
 	
 	@ManyToOne
-	
 	@JsonIgnore
 	private Usuario vendedor;
 	

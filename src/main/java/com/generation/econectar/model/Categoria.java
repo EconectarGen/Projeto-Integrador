@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_categoria")
@@ -23,11 +22,9 @@ public class Categoria {
 	private Long id;
 	
 	
-	@Size(min = 1, max = 255, message = "O nome da categoria deve conter no mínimo 1 e no máximo 255 caracteres")
 	private String nomeCategoria;
 	
 	
-	@Size(min = 1, max = 1000, message = "A descrição deve conter no mínimo 1 e no máximo 1000 caracteres")
 	private String descricao;
 	
 	
