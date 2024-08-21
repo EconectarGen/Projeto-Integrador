@@ -45,7 +45,7 @@ public class Servico {
 	private Usuario comprador;
 	
 	@ManyToOne
-	@JsonIgnore
+	
 	private Categoria categoria;
 	
 
