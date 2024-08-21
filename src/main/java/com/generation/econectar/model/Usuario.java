@@ -55,13 +55,15 @@ public class Usuario {
 	private String foto;
 	
 	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("vendedor")
+	@JsonIgnoreProperties({"vendedor"})
+	
 	private List<Servico> ServicosVendidos;
 	
 	
 	@OneToMany
 	(mappedBy = "comprador", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("comprador")
+	@JsonIgnoreProperties({"comprador"})
+	
 	private List<Servico> ServicosComprados;
 
 	public Usuario(Long id, String usuario, String nome, String senha, String endereco, String cpf, LocalDate dataNascimento, String foto, List<Servico> servicosVendidos, List<Servico> servicosComprados) {

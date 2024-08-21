@@ -32,7 +32,7 @@ public class Categoria {
 	
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("categoria")
+	@JsonIgnoreProperties({"categoria"})
 	private Set<Servico> servico;
 
 	public String getNomeCategoria() {

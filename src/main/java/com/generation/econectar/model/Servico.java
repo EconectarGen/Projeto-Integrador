@@ -2,6 +2,7 @@ package com.generation.econectar.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -40,15 +41,16 @@ public class Servico {
 	private String status;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("servicosVendidos")
+	
+	@JsonIgnore
 	private Usuario vendedor;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("servicosComprados")
+    @JsonIgnore
 	private Usuario comprador;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("servico")
+	@JsonIgnore
 	private Categoria categoria;
 	
 
