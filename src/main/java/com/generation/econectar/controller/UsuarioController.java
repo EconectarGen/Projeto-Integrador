@@ -58,4 +58,8 @@ public class UsuarioController {
                 .map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
+    @DeleteMapping("/{id}")
+	public void deleteUsuario(@PathVariable Long id) {
+		usuarioRepository.deleteById(id);
+	}	
 }

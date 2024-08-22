@@ -52,6 +52,15 @@ public class ServicoController {
 		return ResponseEntity.status(201).body(servicorepository.save(servico));
 	}
 	
+	@PutMapping
+	public ResponseEntity<Servico> put(@Valid @RequestBody Servico servico) {
+		if (servicorepository.existsById(servico.getCategoria().getId())) {
+			return ResponseEntity.status(HttpStatus.OK).body(servicorepository.save(servico));
+		} else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
 	@PutMapping("/{id}/comprar")
 	public Servico comprarServico(@Valid @PathVariable long id, @RequestBody Usuario comprador) {
 		Servico servico = servicorepository.findById(id).orElseThrow(() -> new RuntimeException("Servico não encontrado"));
