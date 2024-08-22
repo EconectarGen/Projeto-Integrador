@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.generation.blogpessoal.model.Postagem;
 import com.generation.econectar.model.Servico;
 import com.generation.econectar.model.Usuario;
 import com.generation.econectar.repository.CategoriaRepository;
@@ -32,7 +31,7 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServicoController {
 	
-	@autowired
+	@Autowired
 	private CategoriaRepository Categoria;
 	@Autowired
 	private ServicoRepository servicorepository;
