@@ -56,13 +56,11 @@ public class ServicoController {
 		return ResponseEntity.status(201).body(servicorepository.save(servico));
 	}
 	
-	@PutMapping("/{id}/atualizar")
+	@PutMapping("/atualizar")
 	public ResponseEntity<Servico> put(@Valid @RequestBody Servico servico){
 		if (servicorepository.existsById(servico.getId())) {
-			if (Categoria.existsById(servico.getCategoria().getId())) 
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(servicorepository.save(servico));
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe", null);
 	}
 		return 	ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
