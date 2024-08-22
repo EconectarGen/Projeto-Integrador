@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.generation.blogpessoal.model.Postagem;
 import com.generation.econectar.model.Servico;
 import com.generation.econectar.model.Usuario;
+import com.generation.econectar.repository.CategoriaRepository;
 import com.generation.econectar.repository.ServicoRepository;
 
 import jakarta.validation.Valid;
@@ -29,6 +32,8 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServicoController {
 	
+	@autowired
+	private CategoriaRepository Categoria;
 	@Autowired
 	private ServicoRepository servicorepository;
 	
@@ -52,13 +57,15 @@ public class ServicoController {
 		return ResponseEntity.status(201).body(servicorepository.save(servico));
 	}
 	
-	@PutMapping("/atualizar")
-	public ResponseEntity<Servico> put(@Valid @RequestBody Servico servico) {
-		if (servicorepository.existsById(servico.getCategoria().getId())) {
-			return ResponseEntity.status(HttpStatus.OK).body(servicorepository.save(servico));
-		} else {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
+	@PutMapping("/{id}/atualizar")
+	public ResponseEntity<Servico> put(@Valid @RequestBody Servico servico){
+		if (servicorepository.existsById(servico.getId())) {
+			if (Categoria.existsById(servico.getCategoria().getId())) 
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(servicorepository.save(servico));
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe", null);
+	}
+		return 	ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
 	@PutMapping("/{id}/comprar")
