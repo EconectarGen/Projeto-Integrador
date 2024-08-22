@@ -52,7 +52,7 @@ public class ServicoController {
 		return ResponseEntity.status(201).body(servicorepository.save(servico));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Servico> put(@Valid @RequestBody Servico servico) {
 		if (servicorepository.existsById(servico.getCategoria().getId())) {
 			return ResponseEntity.status(HttpStatus.OK).body(servicorepository.save(servico));
